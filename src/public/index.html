@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>PC preparation</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+</head>
+<body>
+<header class="header">
+    <span class="header__piskel-writing">Piskel</span>
+    <span class="header__new-piskel">New Piskel</span>
+    <div class="header__register-buttons">
+        <a class="header__register-buttons__sprite" href="index.html" target="_blank">Create Sprite</a>
+        <button class="header__register-buttons__sprite" onclick="googleSignIn()">Sign in</button>
+    </div>
+</header>
+<main>
+    <button id="full_screen">full screen</button>
+</main>
+<script src="https://use.fontawesome.com/359f131d6f.js"></script>
+<script>
+    const config = {
+        apiKey: "AIzaSyCR8qwSzSyHVSajtTguJLsvdHrKnxzdTGI",
+        authDomain: "piskelclone-d81ad.firebaseapp.com",
+        databaseURL: "https://piskelclone-d81ad.firebaseio.com",
+        projectId: "piskelclone-d81ad",
+        storageBucket: "piskelclone-d81ad.appspot.com",
+        messagingSenderId: "964356932387",
+        appId: "1:964356932387:web:d8a1b6f5d981ce3d608296",
+        measurementId: "G-M88SFR3LP2"
+    };
+    firebase.initializeApp(config);
+    googleSignIn = ()=>{
+        base_provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(base_provider).then(function(result) {
+            console.log(result);
+            console.log('Success....Google Account Linked');
+        }).catch(function(err) {
+            console.log(err);
+            console.log('Failed to do');
+        })
+    }
+</script>
+</body>
+</html>
